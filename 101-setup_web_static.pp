@@ -55,7 +55,6 @@ class web_static_setup {
 
     location /hbnb_static {
         alias /data/web_static/current/;
-        index index.html index.htm;
     }
 }
 ",
