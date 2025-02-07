@@ -6,7 +6,6 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-
 @app.route("/number_template/<n>", strict_slashes=False)
 def number_template(n=None):
     if isinstance(n, int):
