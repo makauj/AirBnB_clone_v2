@@ -16,8 +16,31 @@
         <section class="filters">
             <div class="filters__container">
                 <h3>States</h3>
+                <h4>&nbsp;</h4>
+                <div class="popover">
+                    <ul>
+                        {% for state in states.values() |sort(attribute="name") %}
+                        <li><strong> {{ state.name }}</strong>
+                        <ul>
+                            {% for city in state.cities.values() |sort(attribute="name") %}
+                            <li> {{ city.name }} </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="popover">
+                    <ul>
+                        {% for amenity in amenities.values() |sort(attribute="name") %}
+                        <li><input type="checkbox" name="amenities" value="{{ amenity.id }}"> {{ amenity.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
+            <button class="apply">Search</button>
         </section>
     </div>
+    <footer>Holberton</footer>
 </body>
 </html>
