@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HBNB</title>
+        <link rel="stylesheet" href="../static/styles/103-common.css">
+        <link rel="stylesheet" href="../static/styles/103-header.css">
+        <link rel="stylesheet" href="../static/styles/103-footer.css">
+        <link rel="stylesheet" href="../static/styles/103-filters.css">
+        <link rel="stylesheet" href="../static/styles/103-places.css">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+            integrity="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDYPlW9MmycL"
+            crossorigin="anonymous">
+        <link rel="icon" href="../static/images/logo.png">
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <section class="filters">
+                <div class="filters__container">
+                    <h3>States</h3>
+                    <h4>&nbsp;</h4>
+                    <div class="popover">
+                        <ul>
+                            {% for state in states.values() |sort(attribute="name") %}
+                            <li><strong> {{ state.name }}</strong>
+                            <ul>
+                                {% for city in state.cities.values() |sort(attribute="name") %}
+                                <li> {{ city.name }} </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="popover">
+                        <ul>
+                            {% for amenity in amenities.values() |sort(attribute="name") %}
+                            <li><input type="checkbox" name="amenities" value="{{ amenity.id }}"> {{ amenity.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <button class="apply">Search</button>
+            </section>
+            <section class="places">
+                <h1>Places</h1>
+                {% for place in places.values() | sort(attribute="name") %}
+                <article>
+                    <div class="title">
+                        <h2>{{ place.name }}</h2>
+                        <div class="price_by_night">&#200;{{ place.price_by_night }}</div>
+                    </div>
+                    <div class="information">
+                        <div class="max_guest">3 Guests</div>
+                        <div class="number_rooms">1 Bedroom</div>
+                        <div class="number_bathrooms">1 Bathroom</div>
+                    </div>
+                    <div class="user">
+                        <b>Owner:</b> John Doe
+                    </div>
+                    <div class="description">
+                        Description of the place
+                    </div>
+                </article>
+            </section>
+
+        </main>
+    </body>
+</html>
