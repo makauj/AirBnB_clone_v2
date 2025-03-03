@@ -8,11 +8,15 @@ app = Flask(__name__)
 
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
+    """HBNB route"""
     return "HBNB"
 
 
 @app.route("/", strict_slashes=False)
 def hello():
+    """hello route
+    Return (str): Hello HBNB!
+    """
     return "Hello HBNB!"
 
 
